@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>PneumoScan</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="icon" href="pneumoicon.png" type="image/png"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="#"> <img src="pneumoscan logo2.png" alt="PneumoScan"/> </a>
+            </h1>
+
+            <nav>
+                <a href="#Home">Home</a>
+                <a href="#Demo">Demo</a>
+                <a href="#How-It-Works">How it Works</a>
+                <a href="#Mission">Mission</a>
+                <a href="#Repo">Repo</a>
+            </nav>
+        </header>
+
+        <div id="scroll-indicator">
+            <span>Scroll down</span>
+            <span class="arrow">↓</span>
+        </div>
+
+        <section class="vid">
+            <div class="holder">
+            <img id="scroll-img" src="frames/frame0001.jpg" alt="scroll frame" />
+            </div>
+
+            <div class="story">
+                <div>
+                    <h2>Every blue dot is a life.</h2>
+                </div>
+                <div>
+                    <h2>Every line, a connection.</h2>
+                </div>
+                <div>
+                    <h2>But some places still wait too long for care.</h2>
+                </div>
+                <div>
+                    <h2>X-rays are taken — but diagnoses come late.</h2>
+                </div>
+                <div>
+                    <h2>In a connected world, no one should be left behind.</h2>
+                </div>
+                <div>
+                    <h2>What if detecting pneumonia was as simple as uploading a photo?</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="Home">
+            <div id="introheading" class="fade-in-up">
+                <h1> Introducing PneumoScan.</h1>
+            </div>
+            <div id="content-wrapper1">
+                <div id="paragraph1" class="fade-in-up">
+                    <p> PneumoScan is an AI-powered tool that uses deep learning to analyze chest X-rays and detect signs of pneumonia.
+                        Trained on a dataset of 5,863 images, it can distinguish between normal and pneumonia-affected lungs in seconds.
+                    </p>
+                    <a href="#How-It-Works" id="learn-more-button" class ="fade-in-up">Learn More</a>
+                </div>
+                <div id="p1image" class="fade-in-right">
+                    <img src="ai4 nobg.png" alt="Doctor looking at scans">
+                </div>
+            </div>
+        </section>
+
+        <section id="Demo">
+        <div class="headings fade-in-up">
+            <h1>Demo</h1>
+        </div>
+        <div id="content-wrapper2">
+            <div class="video fade-in-right">
+                <video src="pneumoniademo.mp4" playsinline controls></video>
+            </div>
+            <div id="demoimage" class="fade-in-right">
+                <img src="ai3.png" alt="Chest Image Demo">
+            </div>
+        </div>
+        </section>
+
+        <section id="How-It-Works">
+            <div class="headings fade-in-up">
+                <h1>How It Works</h1>
+            </div>
+            <div id="paragraph2" class="fade-in-up">
+                <p>This tool uses a convolutional neural network (CNN) to detect pneumonia from chest X-ray images.
+                    It’s trained on a dataset of 5,863 images, split into two categories: NORMAL and PNEUMONIA.
+                    Images are resized to 64x64 pixels and normalized (pixel values scaled between 0 and 1).
+                    Data augmentation such as rotation, zoom, and horizontal flipping is applied to the training set to improve generalization.
+                    The model architecture consists of two convolutional layers with ReLU activation and max pooling, followed by a flattening layer, a dense hidden layer with 128 units, and a dropout layer to reduce overfitting.
+                    The final layer uses a softmax activation function to classify inputs into one of the two categories.
+                    The model is compiled using the Adam optimizer and trained for 10 epochs using categorical cross-entropy loss.
+                    After training, the model is saved and used in a Flask web app.
+                    In the app, users can upload a chest X-ray image, which is resized to 64x64 pixels and preprocessed just like the training data.
+                    The model predicts class probabilities using model.predict, and the most likely class (NORMAL or PNEUMONIA) is returned along with the confidence percentage.
+                    The result is then displayed on the webpage alongside the uploaded image.</p>
+            </div>
+            <div id="content-wrapper3">
+                <div id="howitworksimage1" class="fade-in-right">
+                    <img src="final png.png" alt="Neural Network">
+                </div>
+                <div id="howitworksimage2" class="fade-in-right">
+                    <img src="project_arch.svg" alt="Project Arch">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="Mission">
+            <div class="headings fade-in-up">
+                <h1>Why This?</h1>
+            </div>
+            <div id="content-wrapper4">
+                <div id="paragraph3" class="fade-in-up">
+                    <p>Pneumonia is a serious and potentially life-threatening respiratory condition that affects millions of people worldwide, especially children and the elderly.
+                        Early and accurate diagnosis is critical for effective treatment, yet in many areas, access to trained radiologists is limited and traditional diagnosis through X-ray interpretation can be time-consuming and prone to human error.
+                        This project leverages machine learning to assist in diagnosing pneumonia by automatically analyzing chest X-ray images.
+                        By training a neural network on thousands of labeled images, the system can detect subtle patterns that may be missed by the human eye, offering faster, more consistent, and more accessible diagnostics.
+                        Integrating AI into medical imaging workflows not only enhances accuracy but also helps reduce the burden on healthcare professionals, particularly in under-resourced or high-volume environments.
+                        The use of machine learning in healthcare has the potential to save lives, improve patient outcomes, and reduce healthcare costs, making it a vital area of development in the medical field.</p>
+                </div>
+                <div id="missionimage" class="fade-in-right">
+                    <img src="ai5.png" alt="Doctor Using AI">
+                </div>
+            </div>
+        </section>
+
+        <section id="Repo">
+            <div class="headings fade-in-up">
+                <h1>Repository</h1>
+            </div>
+            <div id="gitlogo" class="fade-in-up">
+                <img src="github logo.png" alt="Github Logo">
+            </div>
+        </section>
+
+        <footer>
+            <div id="footertext">
+                <p>© 2025 PneumoScan. All rights reserved.</p>
+            </div>
+            <div id="footersign">
+                <p>Brought to life by Daniel ❤️</p>
+            </div>
+        </footer>
+
+        <script defer src="scrollvid.js"></script>
+    </body>
+</html>
