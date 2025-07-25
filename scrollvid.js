@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /*
   const section = document.querySelector("section.vid");
   const img = document.getElementById("scroll-img");
   const scrollIndicator = document.getElementById("scroll-indicator");
@@ -38,6 +39,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scroll();
   window.addEventListener("scroll", scroll);
+  */
+
+  const section = document.querySelector('section.vid')
+  const vid = document.querySelector('video')
+
+  vid.pause
+
+  const scroll = () => {
+    const distance = window.scrollY
+    const total = section.clientHeight - window.innerHeight
+
+    let percentage = distance / total
+    percentage = Math.max(0,percentage)
+    percentage = Math.min(percentage,1)
+
+    if (vid.duration > 0) {
+      vid.currentTime = vid.duration * percentage
+    }
+  }
+
+  scroll()
+  window.addEventListener("scroll", scroll)
 
   const fadeHeadings = document.querySelectorAll('.fade-in-up');
   const p1image = document.querySelector('#p1image');

@@ -50,6 +50,43 @@ nav a:hover {
 }
 
 section.vid {
+  height: 650vh;
+  position: relative;
+  background-color: #0c3e8a;
+}
+
+section.vid div.holder {
+  position: sticky;
+  margin-top: -60px;
+  top: 0;
+}
+
+section.vid video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section.vid div.story {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color:#ffffff
+}
+
+section.vid div.story div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+/*
+
+section.vid {
   margin-top: -60px;
   height: 900vh;
   position: relative;
@@ -101,6 +138,8 @@ section.vid div.story div:nth-last-child(2) {
 section.vid div.story div:last-child {
   height: 90vh;
 }
+
+*/
 
 #scroll-indicator {
   position: fixed;
