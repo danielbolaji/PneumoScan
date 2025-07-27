@@ -1,66 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /*
-  const section = document.querySelector("section.vid");
-  const img = document.getElementById("scroll-img");
   const scrollIndicator = document.getElementById("scroll-indicator");
 
-  const totalFrames = 600; 
-  const framePrefix = "frames/frame";
-  const frameExtension = ".jpg";
-
-  const padNumber = (num, size) => {
-    let s = "0000" + num;
-    return s.slice(-size);
-  };
-
-  const scroll = () => {
-    const scrollTop = window.scrollY;
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    const windowHeight = window.innerHeight;
-
-    let scrollFraction = (scrollTop - sectionTop) / (sectionHeight - windowHeight);
-    scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
-
-    let frameIndex = Math.floor(scrollFraction * (totalFrames - 1)) + 1;
-    let frameNumber = padNumber(frameIndex, 4);
-    let frameSrc = `${framePrefix}${frameNumber}${frameExtension}`;
-
-    img.src = frameSrc;
-
-    if (scrollTop > 10) {
+  function hideScrollIndicator() {
+    if (window.scrollY > 5) {
       scrollIndicator.style.opacity = "0";
       scrollIndicator.style.pointerEvents = "none";
-    } else {
-      scrollIndicator.style.opacity = "1";
-      scrollIndicator.style.pointerEvents = "auto";
-    }
-  };
-
-  scroll();
-  window.addEventListener("scroll", scroll);
-  */
-
-  const section = document.querySelector('section.vid')
-  const vid = document.querySelector('video')
-
-  vid.pause
-
-  const scroll = () => {
-    const distance = window.scrollY
-    const total = section.clientHeight - window.innerHeight
-
-    let percentage = distance / total
-    percentage = Math.max(0,percentage)
-    percentage = Math.min(percentage,1)
-
-    if (vid.duration > 0) {
-      vid.currentTime = vid.duration * percentage
+      window.removeEventListener("scroll", hideScrollIndicator);
     }
   }
 
-  scroll()
-  window.addEventListener("scroll", scroll)
+  window.addEventListener("scroll", hideScrollIndicator);
 
   const fadeHeadings = document.querySelectorAll('.fade-in-up');
   const p1image = document.querySelector('#p1image');
